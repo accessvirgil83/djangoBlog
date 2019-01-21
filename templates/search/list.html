@@ -1,0 +1,17 @@
+{% extends "base1.html" %}
+{% block title %}<title>search</title>{% endblock %}
+{% block content_news %}
+{% if not query %}
+<b>Статья не найдена</b>
+{% else %}
+	{% for i in news %}
+	<h1>{{ i.title}}</h1>
+  	<p>{{i.slug }}</p>
+    <br><br><br>
+    {% empty %}
+    <div>
+    	<h2>0 results!</h2>>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

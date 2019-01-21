@@ -1,0 +1,181 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  {% block title %}{% endblock %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'main/css/mdb.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'main/css/style.css' %}"  rel="stylesheet" type="text/css">
+  <div class=carousel-inner role="listbox">
+    <div class="carousel-item active">
+      <div class="view" style="background-image: url('{% static url "img/nav_img/1.jpg" %}');
+      background-repeat: no-repeat; background-size: cover;">
+      </div>
+    </div>
+  <div class="carousel-item">
+      <div class="view" style="background-image: url('{% static url "img/nav_img/2.jpg" %}');
+      background-repeat: no-repeat; background-size: cover;">
+          <div class="mask rgba-black-strong d-flex justify-content-center align-content-center">
+        </div>
+      </div>
+    </div>
+  <div class="carousel-item">
+      <div class="view" style="background-image: url('{% static url "img/nav_img/3.jpg" %}');
+      background-repeat: no-repeat; background-size: cover;">
+          <div class="mask rgba-black-strong d-flex justify-content-center align-content-center">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    html,
+    body,
+    header,
+    .carousel{
+     height: 60vh;
+    }
+
+@media (max-width: 3000px){
+   html,
+   body,
+   header,
+   .carousel{
+    height: 100vh;
+  }
+
+@media (min-width: 400px) and (max-width: 450px){
+    html,
+    body,
+    header,
+    .carousel{
+    height: 100vh;}
+  } 
+}
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light white scrolling-navbar" >
+    <div class="container">
+      <a href="#" class="navbar-brand waves-effect"><strong class="blue-text">waterline</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse align-content-right" id="navbarContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link waves-effect">Новости</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link waves-effect">Услуги</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link waves-effect">Галерея</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link waves-effect">О Нас</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link waves-effect">Контакты</a>
+          </li>
+          <li><form action="" class="form-inline" method="get">
+              <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                <span class="input-group-btn">
+            
+            </span>
+    
+              </div>
+            </form></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+<div id="carousel-ex" class="carousel slide carousel-fade pt-1" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li class="active" data-target="#carousel-ex" data-slide-to="0"></li>
+    <li data-target="#carousel-ex" data-slide-to="1"></li>
+    <li data-target="#carousel-ex" data-slide-to="2"></li>
+  </ol>
+  <a href="#carousel-ex" class="carousel-control-prev" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a href="#carousel-ex" class="carousel-control-next" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+
+<main mt-5 pt-5>
+  <div class="container d-flex align-content-center h-100">
+    <section class="wow fadeIn">
+      <h2 class="h1 my-5 text-center font-weight-bold">Новости
+      <hr>
+     </h2>
+     {% block content_news %}{% endblock %}
+    <br>
+    <h2 id="Usl" class="h1 my-5 text-center font-weight-bold"  style="padding: 110px"><span>Услуги</span> 
+    <hr> </h2>  
+    <div class="row align-content-center">
+      {% block service %}
+      {% endblock %}
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div> 
+        </div>
+        <br>
+      
+        <h1 class="text-center font-weight-bold" style="padding: 80px">Галлерея<hr></h1>
+
+      <div class="row align-content-center" style="padding: 30px">
+     <div>
+      <div class="row align-content-center">
+      <div class="col-lg-6 col-md-12">
+            <img src="file:/C:/Users/Acer/Desktop/MDB-Free_4.5.16(1)/img/minimalism-in-the-interior-2.jpg" class="img-fluid">
+              <a href="#">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+     </div>
+     <div class="col-lg-6 col-md-12">
+          <img src="file:/C:/Users/Acer/Desktop/MDB-Free_4.5.16(1)/img/minimalism-in-the-interior-2.jpg" class="img-fluid">
+              <a href="#">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+     </div> 
+        </div>
+      </div>
+  </section>
+  </div>
+</main>
+<footer  class="page-footer text-center font-small white mt-1 ">
+  <div class="pt-4">
+    <a href="#" role="button" class="btn btn-outline-black">WaterLine<i class="fa fa-graduation-cap ml-2"></i></a>
+
+    <a href="#" role="button" class="btn btn-outline-black">Contact<i class="fa fa-graduation-cap ml-2"></i></a>
+  </div>
+  <hr class="my-4">
+  <div class="pb-4">
+    <a href="#"><i class="fa fa-facebook black mr-3"></i></a>
+    <a href="#"><i class="fa fa-twitter black mr-3"></i></a>
+  </div>
+  <div class="footer-copyright py-3 black" > © 2019 Copyright:  WaterLine</div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'main/js/jquery-3.3.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'main/js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'main/js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'main/js/mdb.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+
+html,
+body,
+.view{
+	height: 100%;
+}
+
+.carousel{
+	height: 50%;
+}
+
+.carousel .carousel-inner{
+	height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item,
+.carousel .carousel-inner .active{
+	height: 100%;
+}
+.carousel-inner h1{
+
+}
+
+.container_1{
+	padding: 100px;
+}
+
+@media (max-width: 800px){
+	.carousel{
+		height: 100%;
+	}
+}
+
+.page-footer{
+	background-color: #929FBA;
+}
+	.carouselr,
+	 html,
+    body,
+    header,
+    .carousel{
+     height: 60vh;
+    }
+
+@media (max-width: 1600px){
+   html,
+   body,
+   header,
+   .carouselr,
+   .carousel{
+    height: 60vh;
+    
+  }
+
+@media (min-width: 400px) and (max-width: 450px){
+    html,
+    body,
+    header,
+    .carouselr,
+    .carousel{
+    height: 60vh;
+	}
+  } 
+}
+main{
+	padding: 100px;
+}
+
+section.news{
+	padding: 100px;
+}
+
+section.Service{
+	padding: 50px;
+}
+
+section.gallery{
+	padding: 50px;
+}
+
+section.about{
+	padding: 50px;
+}

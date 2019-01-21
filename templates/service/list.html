@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}<title>post list</title>{% endblock %}
+{% block content %}
+{% if not service_news %}
+<b>Статья не найдена</b>
+{% else %}
+	<h1>{{ service_news.title}}</h1>
+  	<p>{{service_news.body|truncatechars:70 }}</p>
+    <br><br><br>
+{% endif %}
+{% endblock %}

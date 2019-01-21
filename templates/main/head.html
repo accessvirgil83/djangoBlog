@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block content_news %}
+{% if not post %}
+<b>Статья не найдена</b>
+{% else %} <div class="row text-left">
+           <div class="col-lg-6 col-md-12" >
+                <div class="view overlay rounded z-depth-2-half">
+                  <img src="{{ post.image.url }}" class="img-fluid">
+                   <a href="#"><div class="mask rgba-white-slight"></div> </a>
+                </div> 
+            <br>
+          </div>
+        <div class="col-lg-6 col-md-12 text-center">
+          <div class="p-data right mr-auto">
+              <a href="{{ post.get_absolute_url }}" class="light-blue-text">
+                <h6>
+                <i class="fa fa-clock-o"></i>
+              <strong>{{ post.title}}</strong>
+              </h6>
+              </a>  
+              <p>{{post.body|truncatechars:30 }}</p>
+{% endif %}
+          </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block service %}
+ {% if not serv %}
+<b>Статья не найдена</b>
+{% else %}  
+      <div class="col-lg-6 col-md-12">
+      <h1>{{ serv.title|truncatechars:30 }}</h1> 
+      <p>{{ serv.body|truncatechars:30 }}</p>
+     </div>
+      <div class="col-lg-6 col-md-12">
+      
+      
+  {% if not serv.image1 %}
+  <h1>&nbsp;</h1>
+   {% else %}
+  <img src="{{ serv.image.url }}" alt=""></a>
+  {% endif %}
+     
+{% endif %}
+{% endblock %}

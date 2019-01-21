@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}<title>hgfh</title>{% endblock %}
+{% block content %}
+{% if not post %}
+<b>Статья не найдена</b>
+{% else %}
+	{% for post_news in post %}
+	<h1>{{ post_news.title}}</h1>
+	{% if post_news.image%}
+	<img src="{{ post_news.image.url }}" alt=""></a>
+	{% endif %}
+  	<p>{{post_news.body|truncatechars:30 }}</p>
+  	<span>{{ post_news.date_news }}</span>
+  	<a href="{{ post_news.get_absolute_url }}">RS</a>
+    <br><br><br>
+	{% endfor %}
+{% endif %}
+
+{% if post.has_previous %}
+  <a href="?page={{ post.previous_page_number }}">Назад</a>
+  {% endif %}
+  <span>{{ post.number }} / {{ post.num_pages }}</span>
+  {% if post.has_next %}
+  <a href="?page={{ post.next_page_number }}" >Вперед</a>
+{% endif %}
+{% endblock %}

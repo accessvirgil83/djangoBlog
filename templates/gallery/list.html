@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}<title>post list</title>{% endblock %}
+{% block content %}
+{% if not post_gallery %}
+<b>Статья не найдена</b>
+{% else %}
+	<h1>{{ post_gallery.title}}</h1>
+  	{% if  post_gallery.image%}
+	<img src="{{  post_gallery.image.url }}" alt=""></a>
+	{% endif %}
+  {% if post_gallery.image1 %}
+  <img src="{{  post_gallery.image1.url }}" alt=""></a>
+  {% endif %}
+  {% if post_news.image2 %}
+  <img src="{{  post_gallery.image2.url }}" alt=""></a>
+  {% endif %}
+  {% if  post_gallery.image3%}
+  <img src="{{  post_gallery.image3.url }}" alt=""></a>
+  {% endif %}
+  <p>{{post_gallery.date_gallery}}</p>
+    <br><br><br>
+{% endif %}
+{% endblock %}

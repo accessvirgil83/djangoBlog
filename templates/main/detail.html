@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{post.title}}{% endblock %}
+
+
+{% block content_news %}
+{% if not post %}
+<b>Статья не найдена</b>
+{% else %}
+<div class="row mt-5">
+        <div class="col-md-7 mb-5" >
+        <div class="view overlay rounded z-depth-2-half">
+              <img src="{{ post.image.url }}" class="img-fluid">
+              <a href="#">
+              <div class="mask rgba-white-slight"></div>
+              </a>
+        </div>  
+        </div>
+        <div class="col-md-3 mb-4">
+           <div class="p-data align-content-center mr-auto">
+              <article class="post-peview">
+                <div class="post-header"><h2>{{ post.title}}</h2></div>
+                <div class="post-body">
+                  <div class="post-entry text-center">
+                    <p>{{post.body|truncatechars:50 }}</p>
+                    <span>{{ post.date_news }}</span>
+                  </div>
+                </div>
+                <div class="post-footer">
+                  <a class="post-link area-current=false" href="{{ post.get_absolute_url }}"></a>
+                </div>
+              </article>
+{% endif %}
+{% endblock %}
+{% block service %}
+          {% if not serv %}
+          <b>Статья не найдена</b>
+          {% else %} 
+                <article class="post-peview">
+                  <div class="post-header"><h2>{{ serv.title|truncatechars:30 }}</h2><hr></div>
+                  <div class="post-body">
+                  <div class="post-entry">
+                    <p>{{ serv.body|truncatechars:30 }}</p>
+                  </div>
+                </div>
+                <div class="post-footer">
+                  <a class="post-link area-current=false" href="{{ serv.get_absolute_url }}">подробнее</a>
+                </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-5" >
+              {% if not serv.image1 %}
+              <h1>&nbsp;</h1>
+              {% else %}
+              <div class="view overlay rounded z-depth-2-half">
+                <img src="{{serv.image.url}}" class="img-fluid">
+              {% endif %}
+                <a href="{{ serv.get_absolute_url }}">
+                <div class="mask rgba-white-slight"></div>
+                </a>
+{% endblock %}
