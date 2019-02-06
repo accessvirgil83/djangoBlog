@@ -1,37 +1,62 @@
-{% extends "base.html" %}
-{% block title %}<title>hgfh</title>{% endblock %}
+{% extends "index1.html" %}
+{% block title %}Галерея{% endblock %}
 {% block content %}
-{% if not post %}
+{% if not gal %}
 <b>Статья не найдена</b>
 {% else %}
-	{% for post_news in post %}
-	<h1>{{ post_news.title}}</h1>
-  <h1>{{ post_news.date_gallery}}</h1>
-	{% if post_news.image%}
-	<img src="{{ post_news.image.url }}" alt=""></a>
-	{% endif %}
-  {% if post_news.image1 %}
-  <img src="{{ post_news.image1.url }}" alt=""></a>
-  {% endif %}
-  {% if post_news.image2 %}
-  <img src="{{ post_news.image2.url }}" alt=""></a>
-  {% endif %}
-  {% if post_news.image3%}
-  <img src="{{ post_news.image3.url }}" alt=""></a>
-  {% endif %}
-
-  	<p>{{post_news.body|truncatechars:30 }}</p>
-  	<span>{{ post_news.date_news }}</span>
-  	<a href="{{ post_news.get_absolute_url }}">RS</a>
+  <section class="service mb-9 text-center align-content-center">
+       <h1><strong>Галерея</strong> <hr><br><br><br></h1>
+	{% for post_news in gal %}
+     <div><h1>
+          <a href="{{ post_news.get_absolute_url }}"><strong>{{ post_news.title}}</strong></a>
+          </h1>
+      </div>
+              <br><br><br>
+<div class="row text-center">
+  <div class="col-lg-7">
+  {% if post_news.image %}
+  <div class="mask rgba-white-slight">
+    <img src="{{ post_news.image.url }}" alt=""></a>
+  </div>
+  <br><br><br>
+  {% elif post_news.image1 %}
+  <div class="mask rgba-white-slight">
+    <img src="{{ post_news.image1.url }}" alt=""></a>
     <br><br><br>
+  </div> 
+  {% elif post_news.image2 %}
+  <div class="mask rgba-white-slight">
+    <img src="{{ post_news.image2.url }}" alt=""></a>
+    <br><br><br>
+  </div>
+  {% elif post_news.image3%}
+  <div class="mask rgba-white-slight">
+    <img src="{{ post_news.image3.url }}" alt=""></a>
+    <br><br><br>
+  </div>
+  {% endif %}  
+ </div> 
+ </div> 
 	{% endfor %}
 {% endif %}
 
-{% if post.has_previous %}
+{% if gal.has_previous %}
   <a href="?page={{ post.previous_page_number }}">Назад</a>
   {% endif %}
-  <span>{{ post.number }} / {{ post.num_pages }}</span>
-  {% if post.has_next %}
+  <span>{{ gal.number }} / {{ post.num_pages }}</span>
+  {% if gal.has_next %}
   <a href="?page={{ post.next_page_number }}" >Вперед</a>
-{% endif %}
+  </section> 
+  {% endif %}
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+

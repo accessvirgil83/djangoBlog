@@ -1,26 +1,57 @@
-{% extends "base.html" %}
-{% block title %}<title>hgfh</title>{% endblock %}
+{% extends "index1.html" %}
+{% block title %}Service{% endblock %}
 {% block content %}
 {% if not post %}
-<b>Статья не найдена</b>
+<b>404  Not Found</b>
 {% else %}
+	   <section class="Serv mb-9 img-fluid  text-center align-content-center">
+       <h1><strong>Услуги</strong> <hr><br><br><br></h1>
+       <div class="row">
 	{% for service_news in post %}
-	<h1>{{ service_news.title}}</h1>
-	{% if service_news.image%}
-	<img src="{{ service_news.image1.url }}" alt=""></a>
-	{% endif %}
-  	<p>{{service_news.body|truncatechars:30 }}</p>
-  	<span>{{ service_news.date_news }}</span>
-  	<a href="{{ service_news.get_absolute_url }}">RS</a>
-    <br><br><br>
-	{% endfor %}
+	            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                 <div class="border align-content-center">
+                {% if service_news.image %} 
+                <div class="mask rgba-white-slight">
+                <img class="card-img-top" src="{{ service_news.image.url }}" alt="">
+                </div>
+                {% elif service_news.image1 %} 
+                <div class="mask rgba-white-slight">
+                <img class="card-img-top" src="{{ service_news.image1.url }}" alt="">
+                </div>
+                {% elif service_news.image2 %}
+                <div class="mask rgba-white-slight">
+                <img class="card-img-top" src="{{ service_news.image2.url }}" alt="">
+                </div>
+                {% elif service_news.image3 %}
+                <div class="mask rgba-white-slight">
+                <img class="card-img-top" src="{{ service_news.image3.url }}" alt="">
+                </div>
+                {% endif %}
+                <div class="card-body">
+                  <p><span>{{ service_news.date_news }}</span></p>
+                  <h4 class="card-title">
+                    <strong>{{ service_news.title }}</strong>
+                  </h4>
+                  <p class="card-text">{{ service_news.body|truncatechars:30 }}</p>
+                  <br>
+                  <a href="{{ service_news.get_absolute_url }}" class="light-blue-text">
+                  <p>Подробнее</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+{% endfor %}
 {% endif %}
-
+    </div>
 {% if post.has_previous %}
   <a href="?page={{ post.previous_page_number }}">Назад</a>
   {% endif %}
   <span>{{ post.number }} / {{ post.num_pages }}</span>
   {% if post.has_next %}
   <a href="?page={{ post.next_page_number }}" >Вперед</a>
+
+</section>
 {% endif %}
 {% endblock %}

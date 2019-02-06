@@ -9,7 +9,7 @@ class service_page(models.Model):
 	image1 = models.ImageField(upload_to='service_image/%Y/%m/%d/', blank=True, verbose_name="Изображение услуги 2")
 	image2 = models.ImageField(upload_to='service_image/%Y/%m/%d/', blank=True, verbose_name="Изображение услуги 3")
 	image3 = models.ImageField(upload_to='service_image/%Y/%m/%d/', blank=True, verbose_name="Изображение услуги 4")
-	body = models.TextField(max_length=256, verbose_name="Содержание")
+	body = models.TextField(max_length=512, verbose_name="Содержание")
 	visible = models.BooleanField(default=1)
 	date_news = models.DateTimeField(auto_now_add=True, verbose_name="Дата публикации")
 

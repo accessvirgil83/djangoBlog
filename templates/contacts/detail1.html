@@ -1,0 +1,29 @@
+{% extends "index1.html" %}
+{% block title %}Контакты{% endblock %}
+{% block content %}
+{% if not post %}
+<b>404</b>
+{% else %}
+ <section class="news mb-6 text-center">
+       <h1><strong>Контакты</strong><hr></h1>
+       <br>
+{% for post_news in post %}    
+       <div class="text-center m-2">
+         <a href="https://2gis.ru/perm/firm/2252328094779683" class="nav-link  waves-effect">
+                  {% if post_news.image%}
+                  <img src="{{ post_news.image.url }}" alt="">
+                  {% endif %}  
+                  <p>Найти на карте</p>
+        </a>
+              <br>
+              <h3 class="m-3">{{ post_news.body }}</h3>
+              <h4 class="m-3">{{ post_news.email }}</h4>
+              <br><br><br>
+             
+      </div>
+{% endfor %}
+{% endif %}
+        <br>
+  </section>
+{% endblock %}
+       

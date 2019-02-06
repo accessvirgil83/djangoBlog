@@ -1,11 +1,48 @@
-{% extends "base.html" %}
+{% extends "index1.html" %}
 {% block title %}<title>post list</title>{% endblock %}
 {% block content %}
 {% if not service_news %}
-<b>Статья не найдена</b>
+<h1 class="text-center">Статья не найдена</h1>
 {% else %}
-	<h1>{{ service_news.title}}</h1>
-  	<p>{{service_news.body|truncatechars:70 }}</p>
-    <br><br><br>
+		<section class="Serv mb-6 text-center">
+       		<a href="{% url 'service_blog:service' %}" class="text-gray-dark">
+        	<h1><i class="fa fa-clock-o">{{ service_news.title }}</i>
+        	</h1>
+        	<p> <span>{{ service_news.date_news }}</span></p>
+        	</a>
+        	<div class="border m-5">
+        		<div class="row">
+                  <div class="col-6 mb-4">
+                  	<div class="text-center m-5">
+             		 <p class="m-5"><span>{{ service_news.body }}</span></p>
+             		 <br><br><br>
+             		 </div>
+             	  </div>
+           		</div>
+        		<div class="row">
+                  {% if service_news.image%}
+                  <div class="col-3 col-md-5 mb-4">
+                 	 <img src="{{service_news.image.url }}" alt="">
+              	  </div>
+                  {% endif %}
+                  {% if service_news.image1 %}
+                  <div class="col-3 col-md-5 mb-4">
+                  	<img src="{{service_news.image1.url }}" alt="">
+              	  </div>
+                  {% endif %}
+                  {% if service_news.image2 %}
+                  <div class="col-3 col-md-5 mb-4">
+                  	<img src="{{service_news.image2.url }}" alt="">
+				  </div>
+                  {% endif %}
+                  {% if service_news.image3 %}
+                  <div class="col-5 col-md-5 mb-4">
+                  	<img src="{{service_news.image3.url }}" alt="">
+                  </div>
+                  {% endif %}
+              </div>
+           	</div>
+     	 </section>
+
 {% endif %}
 {% endblock %}

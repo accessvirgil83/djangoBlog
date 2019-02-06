@@ -1,11 +1,27 @@
-{% extends "base.html" %}
+{% extends "index1.html" %}
 {% block title %}<title>post list</title>{% endblock %}
 {% block content %}
 {% if not post_news %}
 <b>Статья не найдена</b>
 {% else %}
-	<h1>{{ post_news.title}}</h1>
-  	<p>{{post_news.body|truncatechars:70 }}</p>
-    <br><br><br>
+
+<section class="news mb-6 text-center">
+       <a href="{% url 'news_blog:news' %}" class="text-gray-dark">
+        <h1><i class="fa fa-clock-o">{{ post_news.title }}</i>
+           <p> <span>{{ post_news.date_news }}</span></p>
+        </h1>
+        </a>
+        <div class="border m-5">
+       <div class="text-center m-5">
+                  {% if post_news.image%}
+                  <img src="{{ post_news.image.url }}" class="img-fluid" alt="">
+                  {% endif %}
+              <p class="m-5"><span>{{ post_news.body }}</span></p>
+              <br><br><br>
+            </div>
+          </div>
+ </div>
+</section>
+	
 {% endif %}
 {% endblock %}

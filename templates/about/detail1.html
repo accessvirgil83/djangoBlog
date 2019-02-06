@@ -1,0 +1,30 @@
+{% extends "index1.html" %}
+{% block title %}О Нас{% endblock %}
+{% block content %}
+{% if not post %}
+<b>404</b>
+{% else %}
+<section class="news mb-6 text-center">
+       <h1><strong>О Нас</strong> <hr></h1>
+       <br>
+{% for post_news in post %}
+       <div class="text-center m-4">
+                  {% if post_news.image%}
+                  <img src="{{ post_news.image.url }}" alt="">
+                  {% endif %}
+                   <a href="{% url 'gallery:gallery' %}"><div class="mask rgba-white-slight"></div>
+                         <br>
+                    <h6><i class="fa fa-clock-o"></i>
+                    <strong>{{ post_news.title}}</strong>
+                    </h6>
+                  </a>  
+              <p><span>{{ post_news.date_about }}</span></p>
+              <p>{{post_news.bod|truncatechars:30 }}</p>
+              <br><br><br>
+      </div>
+{% endfor %}
+{% endif %}
+</section>
+            
+{% endblock %}
+       

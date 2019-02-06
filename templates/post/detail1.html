@@ -1,0 +1,39 @@
+{% extends "index1.html" %}
+{% block title %}Новости{% endblock %}
+{% block content %}
+{% if not post %}
+<b>404</b>
+{% else %}
+    <section class="news mb-6 img-fluid  text-center">
+       <h1><strong>Новости</strong> <hr></h1>
+       <div class="news_center img-fluid text-center">
+{% for post_news in post %}
+            <div class="border m-auto">
+                <a href="{{ post_news.get_absolute_url }}" class="light-blue-text">
+                    <h1><strong>{{ post_news.title}}</strong></h1>
+                </a> 
+                <br>
+                {% if post_news.image%}
+                <img src="{{ post_news.image.url }}" class="img-fluid" alt="">
+                {% endif %}
+                <a href="#"><div class="mask rgba-white-slight"></div></a> 
+                <br> 
+                <p> <span>{{ post_news.date_news }}</span></p>
+                <p class="h3 m-5">{{post_news.body|truncatechars:30 }}</p>
+            </div>
+              <br><br><br>
+          
+{% endfor %}
+{% endif %}
+              {% if post.has_previous %}
+  			<a href="?page={{ post.previous_page_number }}">Назад</a>
+				{% endif %}
+  			<span>{{ post.number }} / {{ post.num_pages }}</span>
+  			{% if post.has_next %}
+  			<a href="?page={{ post.next_page_number }}" >Вперед</a>
+      </div>
+        <br>
+  </section>
+{% endif %}
+{% endblock %}
+       

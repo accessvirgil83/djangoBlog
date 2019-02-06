@@ -1,0 +1,112 @@
+{% extends "index.html" %}
+{% block title %}<title>hgfh</title>{% endblock %}
+{% block content_news %}
+{% if not post %}
+{% else %}
+{% for post_news in post %}
+      <section class="news mb-6 text-center">
+       <div class="text-center">
+                  {% if post_news.image%}
+                  <img src="{{ post_news.image.url }}" alt="">
+                  {% endif %}
+                   <a href="#"><div class="mask rgba-white-slight"></div> </a>
+                  
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-body">
+              <a href="{{ post_news.get_absolute_url }}" class="light-blue-text">
+                <h6>
+                <i class="fa fa-clock-o"></i>
+              <strong>{{ post_news.title}}</strong>
+              </h6>
+              </a>  
+             <p> <span>{{ post_news.date_news }}</span></p>
+              <p>{{post_news.body|truncatechars:30 }}</p>
+              <br><br><br>
+            </div>
+          </div>
+    </div>
+        <br>
+  </section>
+{% endfor %}
+{% endif %}
+{% endblock %}
+      
+
+{% block service %}
+{% if not serv %}
+{% else %}
+<section class="Serv mb-6 text-center">
+{% for serv_news in serv %}
+       <div class="text-center">
+                  {% if serv_news.image %}
+                  <img src="{{ serv_news.image.url }}" alt="">
+                  {% elif serv_news.image1 %}
+                  <img src="{{ serv_news.image1.url }}" alt="">
+                  {% elif serv_news.image2 %}
+                  <img src="{{ serv_news.image2.url }}" alt="">
+                  {% elif serv_news.image3 %}
+                  <img src="{{ serv_news.image3.url }}" alt="">
+                  {% endif %}        
+            <br>
+              <a href="{{ serv_news.get_absolute_url }}" class="light-blue-text">
+                <h6>
+                <i class="fa fa-clock-o"></i>
+              <strong>{{ serv_news.title}}</strong>
+              </h6>
+              </a>  
+             <p> <span>{{ serv_news.date_news }}</span></p>
+              <p>{{ serv_news.body|truncatechars:30 }}</p>
+              <br><br><br>
+{% endfor %}
+{% endif %}
+
+      </div>
+        <br>
+  </section>
+
+{% endblock %}
+       
+
+       
+{% block gallery %}
+{% if not gal %}
+{% else %}
+{% for g in gal %}
+            <h2>Есть</h2>
+            {% if not gal.image.url %}
+            {% else %}
+            <div class="col-md-4 mb-5" >
+              <div class="view overlay rounded z-depth-2-half">           
+                <img src="{{ g.image.url }}" class="img-fluid">
+              </div>  
+            </div>
+            {% endif %}
+            {% if not g.image1.url %}
+            {% else %}
+            <div class="col-md-4 mb-5" >
+              <div class="view overlay rounded z-depth-2-half">
+                <img src="{{ g.image1.url }}" class="img-fluid">
+            </div>  
+            </div>
+            {% endif %}
+            {% if not g.image2.url %}
+            {% else %}
+            <div class="col-md-4 mb-5" >
+              <div class="view overlay rounded z-depth-2-half">
+                <img src="{{ g.image2.url }}" class="img-fluid">
+              </div>  
+            </div>
+            {% endif %}
+
+          {% if not g.image3.url %}
+            {% else %}
+            <div class="col-md-4 mb-5" >
+              <div class="view overlay rounded z-depth-2-half">
+                <img src="{{ g.image3.url }}" class="img-fluid">
+              </div>  
+            </div>
+            {% endif %}  
+  {% endfor %}   
+{% endif %}
+      {% endblock %}
